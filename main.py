@@ -3,6 +3,7 @@ import pandas as pd
 # read csv files
 df_ftm = pd.read_csv('data/export-tokenholders-for-contract-0x2130d2a1e51112d349ccf78d2a1ee65843ba36e0.csv')
 df_eth = pd.read_csv('data/export-tokenholders-for-contract-0x95b3497bbcccc46a8f45f5cf54b0878b39f8d96c.csv')
+new_file = "finished.csv"
 
 # amount of UniDex to be distributed
 unidex = 2000
@@ -54,4 +55,4 @@ df["UniDex"] = df["Decimal"] * unidex
 df.drop(columns=["PendingBalanceUpdate", "Balance", "Decimal"], inplace=True)
 df.reset_index(inplace=True, drop=True)
 
-df.to_csv("tmp/finished.csv", header=False, index=False)
+df.to_csv(new_file, header=False, index=False)
