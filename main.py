@@ -6,7 +6,7 @@ df_eth = pd.read_csv('data/export-tokenholders-for-contract-0x95b3497bbcccc46a8f
 new_file = "finished.csv"
 
 # amount of UniDex to be distributed
-unidex = 2000
+token = 2000
 
 # combine dataframes
 df = pd.concat([df_ftm, df_eth])
@@ -49,7 +49,7 @@ df.sort_values(by=["Balance"], inplace=True, ascending=False)
 
 total = sum(df["Balance"])
 df["Decimal"] = df["Balance"]/total
-df["UniDex"] = df["Decimal"] * unidex
+df["UniDex"] = df["Decimal"] * token
 
 # delete unnecessary columns and reset index
 df.drop(columns=["PendingBalanceUpdate", "Balance", "Decimal"], inplace=True)
